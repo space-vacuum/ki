@@ -11,7 +11,7 @@ maintainer: Mitchell Rosen <mitchellwrosen@gmail.com>
 name: ki
 stability: experimental
 synopsis: A lightweight, structured-concurrency library
-version: 0.2.0.1
+version: 0.2.0.2
 
 description:
   A lightweight, structured-concurrency library.
@@ -52,6 +52,8 @@ source-repository head
   location: https://github.com/mitchellwrosen/ki.git
 
 common component
+  build-depends:
+    base ^>= 4.12 || ^>= 4.13 || ^>= 4.14 || ^>= 4.15 || ^>= 4.16 || ^>= 4.17 || ^>= 4.18,
   default-extensions:
     AllowAmbiguousTypes
     BlockArguments
@@ -95,8 +97,7 @@ flag dejafu-tests
 library
   import: component
   build-depends:
-    base >= 4.12.0.0 && < 4.15,
-    containers
+    containers,
   if !flag(dejafu-tests)
     build-depends:
       stm

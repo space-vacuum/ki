@@ -1,1 +1,2 @@
-packages: .
+import: ki.project
+with-compiler: ghc-8.10.7

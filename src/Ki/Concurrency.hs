@@ -152,7 +152,11 @@ import GHC.IO (IO (IO), unsafePerformIO, unsafeUnmask)
 import Prelude
 
 forkIO :: IO () -> IO ThreadId
+#if MIN_VERSION_base(4,17,0)
+forkIO (IO action) =
+#else
 forkIO action =
+#endif
   IO \s ->
     case fork# action s of
       (# s1, tid #) -> (# s1, ThreadId tid #)

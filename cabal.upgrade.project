@@ -1,0 +1,5 @@
+import: ki.project
+with-compiler: ghc-9.4.4
+
+allow-newer:
+  ki:base
